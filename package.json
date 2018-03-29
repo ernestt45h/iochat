@@ -1,0 +1,15 @@
+{
+  "name": "iochat",
+  "version": "0.0.1",
+  "description": "A simple cross platform chating app written in js",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "chat",
+    "app"
+  ],
+  "author": "ernest",
+  "license": "ISC"
+}
