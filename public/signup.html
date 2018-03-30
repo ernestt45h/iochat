@@ -1,0 +1,83 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OneChat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./libs/vue.js"></script>
+    <script src="./libs/vuex.js"></script>
+    <script src="./libs/vue-router.js"></script>
+    <script src="./libs/axios.js"></script>
+    <link rel="stylesheet" href="./css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="./libs/materialize.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <nav class="blue">
+            <div class="nav-wrapper container">
+                <a href="#!" class="brand-logo">
+                    <i class="material-icons">bubble_chart</i>OneChat
+                </a>
+            </div>
+        </nav>
+        <div class="container">
+            <div id="modal1" class="modal">
+                <div class="modal-content blue-text center">
+                    <h4>Success<i class="material-icons">check</i></h4>
+                    <p>You can login using the credentials you provided</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="./" class="modal-action modal-close waves-effect waves-green btn-flat">close</a>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col l6 offset-l3 m8 offset-m2 s12">
+                    <div class="card">
+                        <div class="card-title truncate">
+                            <h1 class="blue-text center">
+                                <i style="font-size: 50px" class="material-icons">bubble_chart</i>Sign Up</a>
+                            </h1>
+                        </div>
+                        <div class="card center white-text" :class="error.color">{{error.msg}}</div>
+                        <div class="card-content">
+                            <div class="input-field">
+                                <input v-model="username" id="username" type="text" class="validate blue-text" autocomplete="off">
+                                <label for="username" class="blue-text">Username*</label>
+                            </div>
+                            <div class="input-field">
+                                <input v-model="email" id="email" type="email" class="validate blue-text" autocomplete="off">
+                                <label for="email" class="blue-text">Email*</label>
+                            </div>
+                            <div class="input-field">
+                                <input v-model="password" id="password" type="password" class="validate blue-text" autocomplete="off">
+                                <label for="password" class="blue-text">Password*</label>
+                            </div>
+                            <div class="input-field">
+                                <input v-model="repassword" id="repassword" type="password" class="validate blue-text" autocomplete="off">
+                                <label for="repassword" class="blue-text">Confirm Password*</label>
+                            </div>
+                            <div class="input-field">
+                                <input v-model="phone" id="phone" type="text" class="validate blue-text" autocomplete="off">
+                                <label for="phone" class="blue-text">Phone</label>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button @click="signUp" class="waves-effect btn right blue btn-large">login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script src="./signup.js"></script>
+</html>

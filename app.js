@@ -15,8 +15,8 @@ try {
         console.log("Connected to mongodb successfully")
     })
     
-    app.use('/api', Api)
     app.use(express.static('public'))
+    app.use('/api', Api)
 
 
     let io = socket(server)

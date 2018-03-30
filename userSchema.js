@@ -15,6 +15,13 @@ let UserSchema = new mongoose.Schema({
     date_created:{
         type: Date,
         default: Date.now
+    },
+    date_update: {
+        type: Date,
+        default: Date.now
+    },
+    phone: {
+        type: String
     }
 })
 
