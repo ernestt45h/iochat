@@ -1,10 +1,13 @@
 $('document').ready(function() {
     $('#app').css('display', 'block')
     $('.preloader').css('display', 'none')
+    $('.tabs').tabs()
 })
+
 
 let bus = new Vue()
 Vue.use(Vuex)
+
 
 
 const store = new Vuex.Store({
@@ -25,7 +28,7 @@ const store = new Vuex.Store({
     },
     mutations:{
         updateUser(state, payload){
-            state.user = payload.data
+            state.user = payload
             bus.$emit('isUser')
         }
     },
@@ -40,7 +43,7 @@ const store = new Vuex.Store({
                         color: 'orange'
                     })
                 }else{
-                    commit('updateUser', doc)
+                    commit('updateUser', doc.data)
                 }
                 bus.$emit('loading', false)
             })
@@ -65,7 +68,11 @@ let app = new Vue({
     },
     methods:{
         loginUser(){
-            this.$store.dispatch('loginUser', this.login)
+            this.error = ''
+            this.$store.dispatch('loginUser', {
+                username: this.login.username,
+                password: this.login.password
+            })
         }
     },
     created: function(){
@@ -83,5 +90,11 @@ let app = new Vue({
                 this.error = ''
             }, 4000);
         })
-    },  
+    },
+    beforeUpdate(){
+        $('document').ready(function () {
+            $('.tabs').tabs() 
+            $('.fixed-action-btn').floatingActionButton();
+        })
+    }
 })

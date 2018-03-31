@@ -1,10 +1,13 @@
 let express = require('express')
 let socket = require('socket.io')
+let cors = require('cors')
 let bodyParser = require('body-parser')
 let mongoose = require('mongoose')
 let Api = require('./api')
 
 let app = express()
+
+app.use(cors())
 app.use(bodyParser.json())
 try {
     let server = app.listen(80, function () {
