@@ -4,7 +4,7 @@
             <div class="col s12">
                 <ul class="tabs">
                     <li class="tab col s6">
-                        <a class="active" href="#test1">Rooms</a>
+                        <a class="active" href="#test1">Chats</a>
                     </li>
                     <li class="tab col s6">
                         <a href="#test2">Contacts</a>
@@ -12,15 +12,15 @@
                 </ul>
             </div>
             <div id="test1" class="col s12">
-                <ul class="collection">
-                    <li v-for="room in rooms" :key="room.id" class="collection-item avatar">
-                        <img v-if="room.img" :src="room.img" alt="" class="circle">
-                        <i v-else class="material-icons circle gray">person</i>
-                        <span class="title">{{room.name}}</span>
+                <ul class="">
+                    <li v-for="chat in chats" :key="chat.id" class="room card blue hoverable row">
+                        <img v-if="chat.img" :src="chat.img" alt="" class="circle col s4 m2 l1">
+                        <i v-else class="material-icons circle white-text center col s5 m3 l2">person</i>
+                        <h5 class="room-name col s7 m9 l10 white-text">{{chat.name}}</h5>
                     </li>
                 </ul>
             </div>
-            <div id="test2" class="col s12">Test 2</div>
+            <div id="test2" class="col s12">Will Work on you later</div>
         </div>
       <preloader></preloader>        
     </div>
@@ -35,7 +35,7 @@ export default {
   components: {Preloader},
   data(){
       return {
-          rooms: '',
+          chats: '',
       }
   },
   beforeCreate(){
@@ -48,11 +48,11 @@ export default {
         $('ul.tabs').tabs();
     })
 
-    bus.$on('rooms', ()=>{
-        this.rooms = this.$store.getters.getRooms
+    bus.$on('chats', ()=>{
+        this.chats = this.$store.getters.getChats
     })
 
-    this.$store.dispatch('fetchRooms')
+    this.$store.dispatch('fetchChats')
   },
   updated(){
        $(document).ready(function(){
@@ -61,4 +61,19 @@ export default {
   }
 }
 </script>
+<style scope>
+    .circle{
+        width: 100px;
+        height: 100px;
+        font-size: 100px;
+    }
+    .room-name{
+        margin-top: 1.5em;
+    }
+
+    .room{
+        cursor: pointer;
+    }
+</style>
+
 

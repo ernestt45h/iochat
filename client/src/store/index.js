@@ -9,7 +9,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         user: '',
-        rooms: ''
+        chats: ''
     },
     getters: {
         getUser: (state) => {
@@ -22,8 +22,8 @@ const store = new Vuex.Store({
                 return false
             }
         },
-        getRooms: state =>{
-            return state.rooms
+        getChats: state =>{
+            return state.chats
         }
     },
     mutations: {
@@ -37,9 +37,9 @@ const store = new Vuex.Store({
                 
             }
         },
-        setRooms(state, payload){
-            state.rooms = payload
-            bus.$emit('rooms')
+        setChats(state, payload){
+            state.chats = payload
+            bus.$emit('chats')
         }
     },
     actions: {
@@ -65,10 +65,11 @@ const store = new Vuex.Store({
                 bus.$emit('loading', false)
             })
         },
-        fetchRooms({commit}){
-            commit('setRooms', [
+        fetchChats({commit}){
+            commit('setChats', [
                 { name: 'Ernest' },
-                { name: 'Anas'},
+                { name: 'Anas' },
+                { name: 'Momi' },
             ])
         }
     }
